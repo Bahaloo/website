@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — CV & Portfolio</title>
+  <meta name="description" content="CV and portfolio of Your Name." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111827;
+      --muted:#9ca3af;
+      --text:#e5e7eb;
+      --accent:#7c3aed;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 500px at 10% 0%, rgba(124,58,237,.18), transparent 60%),
+                  radial-gradient(900px 400px at 90% 20%, rgba(59,130,246,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px;}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,20,.55);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{max-width:var(--max); margin:0 auto; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:14px;}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent); box-shadow:0 0 30px rgba(124,58,237,.6)}
+    .brand strong{font-size:14px; letter-spacing:.4px}
+    .links{display:flex; flex-wrap:wrap; gap:10px; align-items:center;}
+    .links a{
+      text-decoration:none; font-size:13px; color:var(--muted);
+      padding:8px 10px; border-radius:999px; border:1px solid transparent;
+    }
+    .links a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.03)}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px;
+      background: linear-gradient(90deg, rgba(124,58,237,.95), rgba(59,130,246,.9));
+      color:white; text-decoration:none; font-weight:600; font-size:13px;
+      border:0; box-shadow:0 10px 30px rgba(124,58,237,.22);
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      box-shadow:none;
+      color:var(--text);
+    }
+    .hero{
+      padding:34px 0 18px;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr}
+      .links{display:none}
+    }
+    .card{
+      background: rgba(17,24,39,.72);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .kicker{color:var(--muted); font-size:12px; letter-spacing:.24em; text-transform:uppercase; margin:0 0 10px}
+    h1{font-size:38px; line-height:1.12; margin:0 0 12px}
+    .sub{color:var(--muted); margin:0 0 16px; font-size:15px}
+    .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .pill{
+      font-size:12px; color:var(--muted);
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .two{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    }
+    @media (max-width: 860px){.two{grid-template-columns:1fr}}
+    section{scroll-margin-top:84px; margin-top:18px}
+    .sec-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:10px}
+    .sec-title h2{margin:0; font-size:18px}
+    .sec-title p{margin:0; color:var(--muted); font-size:13px}
+    .grid{
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;
+    }
+    @media (max-width: 980px){.grid{grid-template-columns: repeat(2,1fr)}}
+    @media (max-width: 640px){.grid{grid-template-columns:1fr}}
+    .item h3{margin:0 0 6px; font-size:15px}
+    .item .when{color:var(--muted); font-size:12px; margin-bottom:10px}
+    .item p{margin:0; color:var(--text)}
+    .item ul{margin:10px 0 0 18px; color:var(--muted)}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .tag{font-size:11px; color:var(--muted); border:1px solid var(--border); padding:4px 8px; border-radius:999px}
+    .footer{
+      margin-top:22px; color:var(--muted); font-size:12px; text-align:center;
+    }
+    .hr{height:1px; background:var(--border); margin:14px 0}
+    .small{font-size:12px; color:var(--muted)}
+    .list{display:grid; gap:12px}
+    .row{display:flex; justify-content:space-between; gap:14px; align-items:flex-start}
+    .row strong{font-size:14px}
+    .row span{color:var(--muted); font-size:12px; white-space:nowrap}
+    .row p{margin:6px 0 0; color:var(--muted); font-size:13px}
+    .contact a{color:var(--text); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .contact a:hover{border-bottom-color:rgba(255,255,255,.6)}
+    .print-hide{display:block}
+    @media print{
+      body{background:white; color:black}
+      .nav,.print-hide{display:none !important}
+      .card{box-shadow:none; background:white; border:1px solid #ddd}
+      a{color:black}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav print-hide">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <span class="dot"></span>
+        <strong>YOUR NAME</strong>
+      </a>
+      <div class="links">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn" href="#contact" aria-label="Contact">Contact</a>
+    </div>
+  </div>
+
+  <main id="top" class="wrap">
+    <div class="hero">
+      <div class="card">
+        <p class="kicker">CV • Portfolio</p>
+        <h1>Your Name</h1>
+        <p class="sub">
+          Your role / title (e.g., Biomedical Analyst • Lab Diagnostics • Aspiring X) <br/>
+          Based in Stockholm, Sweden
+        </p>
+        <div class="meta">
+          <span class="pill">Open to: Full-time • Part-time • Contract</span>
+          <span class="pill">Languages: Swedish • English • Persian</span>
+          <span class="pill">Focus: Your focus area</span>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap">
+          <a class="btn" href="#portfolio">View portfolio</a>
+          <a class="btn secondary" href="#experience">View CV</a>
+          <!-- Optional: link to your PDF CV -->
+          <!-- <a class="btn secondary" href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a> -->
+        </div>
+      </div>
+
+      <div class="card contact">
+        <h2 style="margin:0 0 10px; font-size:18px">Quick info</h2>
+        <div class="list">
+          <div>
+            <div class="small">Email</div>
+            <div><a href="mailto:you@example.com">you@example.com</a></div>
+          </div>
+          <div>
+            <div class="small">LinkedIn</div>
+            <div><a href="#" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></div>
+          </div>
+          <div>
+            <div class="small">GitHub / Behance / Portfolio link</div>
+            <div><a href="#" target="_blank" rel="noopener">yourlink.com</a></div>
+          </div>
+          <div class="hr"></div>
+          <div class="small">
+            Tip: this page is printable (Ctrl/Cmd+P) and looks like a CV.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="sec-title">
+        <h2>Portfolio</h2>
+        <p>Selected projects and case studies</p>
+      </div>
+
+      <div class="grid">
+        <article class="card item">
+          <h3>Project Title #1</h3>
+          <div class="when">2025 • Your role</div>
+          <p>1–2 lines describing what you built, for who, and why it matters.</p>
+          <ul>
+            <li>Result/impact (numbers if possible)</li>
+            <li>What you did (your contribution)</li>
+          </ul>
+          <div class="tagrow">
+            <span class="tag">Skill/Tool</span>
+            <span class="tag">Skill/Tool</span>
+            <span class="tag">Domain</span>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn secondary" href="#" target="_blank" rel="noopener">View</a>
+          </div>
+        </article>
+
+        <article class="card item">
+          <h3>Project Title #2</h3>
+          <div class="when">2024 • Your role</div>
+          <p>Short description of the project and what makes it strong.</p>
+          <div class="tagrow">
+            <span class="tag">Skill/Tool</span>
+            <span class="tag">Skill/Tool</span>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn secondary" href="#" target="_blank" rel="noopener">View</a>
+          </div>
+        </article>
+
+        <article class="card item">
+          <h3>Project Title #3</h3>
+          <div class="when">2023 • Your role</div>
+          <p>Short description. Add links, screenshots, or a case study later.</p>
+          <div class="tagrow">
+            <span class="tag">Skill/Tool</span>
+            <span class="tag">Domain</span>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn secondary" href="#" target="_blank" rel="noopener">View</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="two">
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="sec-title">
+          <h2>Experience</h2>
+          <p>Your work history</p>
+        </div>
+
+        <div class="list">
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>Job Title — Company</strong>
+                <p>One-line description: what you owned and what you improved.</p>
+              </div>
+              <span>2022–Present</span>
+            </div>
+            <ul>
+              <li>Key responsibility or achievement</li>
+              <li>Key responsibility or achievement</li>
+              <li>Key responsibility or achievement</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>Job Title — Company</strong>
+                <p>What you did, systems/tools, impact.</p>
+              </div>
+              <span>2020–2022</span>
+            </div>
+            <ul>
+              <li>Achievement with result</li>
+              <li>Achievement with result</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="sec-title">
+          <h2>Education</h2>
+          <p>Degrees, certifications</p>
+        </div>
+
+        <div class="list">
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>Degree — University</strong>
+                <p>Relevant coursework, thesis, focus.</p>
+              </div>
+              <span>Year</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>Certification — Organization</strong>
+                <p>Short detail (optional).</p>
+              </div>
+              <span>Year</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="sec-title">
+        <h2>Skills</h2>
+        <p>What you’re good at</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:15px">Technical</h3>
+          <div class="tagrow">
+            <span class="tag">Skill</span><span class="tag">Skill</span><span class="tag">Skill</span>
+            <span class="tag">Tool</span><span class="tag">Tool</span><span class="tag">Tool</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:15px">Domain</h3>
+          <div class="tagrow">
+            <span class="tag">Domain skill</span><span class="tag">Domain skill</span><span class="tag">Domain skill</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:15px">Soft skills</h3>
+          <div class="tagrow">
+            <span class="tag">Communication</span><span class="tag">Teamwork</span><span class="tag">Problem-solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sec-title">
+        <h2>Contact</h2>
+        <p>Let’s talk</p>
+      </div>
+
+      <div class="card contact">
+        <p style="margin:0 0 10px; color:var(--muted)">
+          Best way to reach me:
+        </p>
+        <p style="margin:0">
+          Email: <a href="mailto:you@example.com">you@example.com</a><br/>
+          LinkedIn: <a href="#" target="_blank" rel="noopener">linkedin.com/in/your-handle</a><br/>
+          Location: Stockholm, Sweden
+        </p>
+      </div>
+    </section>
+
+    <p class="footer">© <span id="year"></span> Your Name • Built as a simple CV + portfolio site</p>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
