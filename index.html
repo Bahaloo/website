@@ -3,132 +3,635 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hassan Bahaloo — Technical Lead & CAE Consultant</title>
+  <title>Hassan Bahaloo — CV & Portfolio</title>
+  <meta name="description" content="CV and portfolio of Hassan Bahaloo, Ph.D." />
 
   <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111827;
+      --muted:#9ca3af;
+      --text:#e5e7eb;
+      --accent:#7c3aed;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:#0b0f14;
-      color:#e5e7eb;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 500px at 10% 0%, rgba(124,58,237,.18), transparent 60%),
+        radial-gradient(900px 400px at 90% 20%, rgba(59,130,246,.14), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
     }
-    .wrap{max-width:1100px;margin:auto;padding:32px 18px}
-    h1,h2,h3{margin:0 0 10px}
-    p{color:#9ca3af}
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px;}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,20,.55);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{max-width:var(--max); margin:0 auto; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:14px;}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent); box-shadow:0 0 30px rgba(124,58,237,.6)}
+    .brand strong{font-size:14px; letter-spacing:.4px}
+    .links{display:flex; flex-wrap:wrap; gap:10px; align-items:center;}
+    .links a{
+      text-decoration:none; font-size:13px; color:var(--muted);
+      padding:8px 10px; border-radius:999px; border:1px solid transparent;
+    }
+    .links a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.03)}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px;
+      background: linear-gradient(90deg, rgba(124,58,237,.95), rgba(59,130,246,.9));
+      color:white; text-decoration:none; font-weight:700; font-size:13px;
+      border:0; box-shadow:0 10px 30px rgba(124,58,237,.22);
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      box-shadow:none;
+      color:var(--text);
+      font-weight:650;
+    }
+    .hero{
+      padding:34px 0 18px;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr}
+      .links{display:none}
+    }
     .card{
-      background:#111827;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:20px;
-      margin-bottom:20px;
+      background: rgba(17,24,39,.72);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
     }
+    .kicker{color:var(--muted); font-size:12px; letter-spacing:.24em; text-transform:uppercase; margin:0 0 10px}
+    h1{font-size:38px; line-height:1.12; margin:0 0 12px}
+    .sub{color:var(--muted); margin:0 0 16px; font-size:15px}
+    .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .pill{
+      font-size:12px; color:var(--muted);
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+
+    section{scroll-margin-top:84px; margin-top:18px}
+    .sec-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:10px}
+    .sec-title h2{margin:0; font-size:18px}
+    .sec-title p{margin:0; color:var(--muted); font-size:13px}
+
+    /* --- CASES --- */
+    .cases{display:grid; gap:14px;}
     .case{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-      align-items:center;
+      grid-template-columns: 1fr 1.1fr;
+      gap:16px;
+      align-items:stretch;
     }
-    @media(max-width:900px){
+    @media (max-width: 900px){
       .case{grid-template-columns:1fr}
     }
-    img{
-      width:100%;
-      height:auto;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.08);
-      background:#000;
+    .case h3{margin:0 0 6px; font-size:16px}
+    .case .when{color:var(--muted); font-size:12px; margin-bottom:10px}
+    .case p{margin:0 0 10px}
+    .case ul{margin:10px 0 0 18px; color:var(--muted)}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{font-size:11px; color:var(--muted); border:1px solid var(--border); padding:4px 8px; border-radius:999px}
+
+    /* Image holder (works with real images OR placeholders) */
+    .media{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
     }
-    .tag{
-      display:inline-block;
+    .media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      flex:1;
+      background: rgba(255,255,255,.02);
+    }
+    .media .placeholder{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      text-align:center;
+      color: rgba(229,231,235,.75);
+      background:
+        linear-gradient(135deg, rgba(124,58,237,.20), rgba(59,130,246,.12));
+    }
+    .media .cap{
+      padding:10px 12px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
       font-size:12px;
-      border:1px solid rgba(255,255,255,.15);
-      padding:4px 8px;
-      border-radius:999px;
-      margin-right:6px;
-      color:#9ca3af;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .mini-gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:10px;
+    }
+    @media (max-width: 700px){
+      .mini-gallery{grid-template-columns:1fr}
+    }
+    .mini{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      height:120px;
+    }
+    .mini img{width:100%; height:100%; object-fit:cover; display:block}
+    .mini .ph{
+      width:100%; height:100%;
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(229,231,235,.65); font-size:12px;
+      background: rgba(255,255,255,.02);
+    }
+
+    /* lists */
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+    @media (max-width: 860px){.two{grid-template-columns:1fr}}
+    .list{display:grid; gap:12px}
+    .row{display:flex; justify-content:space-between; gap:14px; align-items:flex-start}
+    .row strong{font-size:14px}
+    .row span{color:var(--muted); font-size:12px; white-space:nowrap}
+    .row p{margin:6px 0 0; color:var(--muted); font-size:13px}
+
+    .hr{height:1px; background:var(--border); margin:14px 0}
+    .footer{margin-top:22px; color:var(--muted); font-size:12px; text-align:center;}
+    .contact a{color:var(--text); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .contact a:hover{border-bottom-color:rgba(255,255,255,.6)}
+    .print-hide{display:block}
+    @media print{
+      body{background:white; color:black}
+      .nav,.print-hide{display:none !important}
+      .card{box-shadow:none; background:white; border:1px solid #ddd}
+      a{color:black}
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
+  <div class="nav print-hide">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <span class="dot"></span>
+        <strong>HASSAN BAHALOO</strong>
+      </a>
+      <div class="links">
+        <a href="#services">Services</a>
+        <a href="#cases">Cases</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn" href="#contact" aria-label="Hire">Hire</a>
+    </div>
+  </div>
 
+  <main id="top" class="wrap">
     <!-- HERO -->
-    <section class="card">
-      <h1>Hassan Bahaloo, Ph.D.</h1>
-      <p>
-        Independent technical lead for complex simulation, dynamics, and
-        decision-grade CAE. I engage in months-long contracts where I own
-        modeling strategy and delivery.
-      </p>
+    <div class="hero">
+      <div class="card">
+        <p class="kicker">CV • Selected Technical Cases</p>
+        <h1>Hassan Bahaloo, Ph.D.</h1>
+        <p class="sub">
+          <strong>Independent Technical Lead</strong> for complex simulation, dynamics, and decision-grade CAE.
+          I typically engage in <strong>months-long contracts</strong> where I own modeling strategy, delivery,
+          and technical outcomes.
+          <br/><br/>
+          Based in Stockholm — working internationally.
+        </p>
+        <div class="meta">
+          <span class="pill">CAE Leadership • ROM • Dynamics</span>
+          <span class="pill">Abaqus • LS-DYNA • MATLAB</span>
+          <span class="pill">Automotive • Energy • Industrial</span>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap">
+          <a class="btn" href="#contact">Hire for a project</a>
+          <a class="btn secondary" href="#cases">View selected cases</a>
+          <!-- Optional: put your CV PDF in the same folder as index.html -->
+          <!-- <a class="btn secondary" href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a> -->
+        </div>
+      </div>
+
+      <div class="card contact">
+        <h2 style="margin:0 0 10px; font-size:18px">Quick contact</h2>
+        <div class="list">
+          <div>
+            <div style="color:var(--muted); font-size:12px">Email</div>
+            <div><a href="mailto:bahaloo.h@gmail.com">bahaloo.h@gmail.com</a></div>
+          </div>
+          <div>
+            <div style="color:var(--muted); font-size:12px">LinkedIn</div>
+            <div><a href="https://linkedin.com/in/h-bahaloo" target="_blank" rel="noopener">linkedin.com/in/h-bahaloo</a></div>
+          </div>
+          <div class="hr"></div>
+          <div style="color:var(--muted); font-size:12px">
+            Engagement: typically months-long independent technical ownership. Limited short reviews.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="sec-title">
+        <h2>Services</h2>
+        <p>What you can hire me for</p>
+      </div>
+
+      <div class="two">
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:15px">Independent technical ownership</h3>
+          <p style="margin:0; color:var(--muted)">
+            I take responsibility for complex simulation workstreams end-to-end: framing the decision, choosing the right level
+            of fidelity, building scalable methods, and delivering validated results.
+          </p>
+          <div class="tagrow">
+            <span class="tag">Program delivery</span><span class="tag">Risk framing</span><span class="tag">Validation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:15px">Reduced-order modeling & acceleration</h3>
+          <p style="margin:0; color:var(--muted)">
+            Turning slow FEM into fast, decision-grade tools: ROM methods, workflow automation, and repeatable engineering
+            pipelines that teams can reuse.
+          </p>
+          <div class="tagrow">
+            <span class="tag">ROM</span><span class="tag">Speed-up</span><span class="tag">Reusable workflows</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:15px">Dynamics, vibration & stiffness</h3>
+          <p style="margin:0; color:var(--muted)">
+            When behavior is non-intuitive: large structures, rotating machinery, BC sensitivity, coupled dynamics, and
+            vibration issues that standard workflows fail to explain.
+          </p>
+          <div class="tagrow">
+            <span class="tag">Rotordynamics</span><span class="tag">FRF</span><span class="tag">Dynamic stiffness</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:15px">High-risk nonlinear FEM / LS-DYNA</h3>
+          <p style="margin:0; color:var(--muted)">
+            Fracture, fatigue, transient dynamics, and nonlinear investigations where credibility matters more than “pretty plots”.
+          </p>
+          <div class="tagrow">
+            <span class="tag">LS-DYNA</span><span class="tag">Fracture</span><span class="tag">Fatigue</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- CASE 1 -->
-    <section class="card case">
-      <div>
-        <h3>Reduced-Order Modeling for Large Structures</h3>
-        <p>
-          Developed reduced-order modeling approaches for highly complex
-          industrial structures to enable fast, decision-grade stiffness
-          predictions.
-        </p>
-        <span class="tag">ROM</span>
-        <span class="tag">Dynamics</span>
-        <span class="tag">Abaqus</span>
+    <!-- CASES -->
+    <section id="cases">
+      <div class="sec-title">
+        <h2>Selected Technical Cases</h2>
+        <p>Depth where it matters (with image slots you can replace)</p>
       </div>
-      <div>
-        <img src="images/rom-heor.JPG" alt="Reduced-order modeling results">
+
+      <div class="cases">
+
+        <!-- CASE 1 -->
+        <article class="card case">
+          <div>
+            <h3>Reduced-Order Modeling for Large-Scale Industrial Structures</h3>
+            <div class="when">Technical ownership • ROM • Dynamic stiffness</div>
+            <p style="color:var(--muted)">
+              Defined modeling strategy and delivered ROM approaches for highly complex structures to enable fast, decision-grade
+              stiffness predictions under real delivery constraints.
+            </p>
+            <ul>
+              <li>Developed deployable ROM workflow for complex systems</li>
+              <li>Supervised an industrial master’s thesis translating ROM methods into robust practice</li>
+              <li>Balanced accuracy–runtime trade-offs and validation strategy</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">Abaqus</span><span class="tag">ROM</span><span class="tag">Model QA</span>
+            </div>
+
+            <div class="mini-gallery">
+              <div class="mini"><div class="ph">Gallery slot A</div></div>
+              <div class="mini"><div class="ph">Gallery slot B</div></div>
+              <div class="mini"><div class="ph">Gallery slot C</div></div>
+            </div>
+          </div>
+
+          <div class="media">
+            <!-- Replace this whole placeholder with an <img> when ready -->
+            <!-- Example:
+              <img src="images/rom-hero.jpg" alt="ROM workflow and results" />
+            -->
+            <img src="images/rotor-hero.JPG" alt="Rotor dynamics GUI and response plot" />
+          </div>
+        </article>
+
+        <!-- CASE 2 -->
+        <article class="card case">
+          <div>
+            <h3>Rotor Dynamics & Vibration Analysis Software</h3>
+            <div class="when">Tooling • Rotordynamics • GUI</div>
+            <p style="color:var(--muted)">
+              Built FEM-based rotor dynamics models including mass, stiffness, damping and gyroscopic effects, supported by a GUI
+              for practical engineering use.
+            </p>
+            <ul>
+              <li>General rotating-system analysis (shaft–disk–bearing)</li>
+              <li>Natural frequency, vibration response, and rotordynamic behavior</li>
+              <li>Delivered a usable tool (not only a study)</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">FEM</span><span class="tag">MATLAB</span><span class="tag">Dynamics</span>
+            </div>
+
+            <div class="mini-gallery">
+              <div class="mini"><div class="ph">GUI screenshot</div></div>
+              <div class="mini"><div class="ph">Response plot</div></div>
+              <div class="mini"><div class="ph">Model diagram</div></div>
+            </div>
+          </div>
+
+          <div class="media">
+            <!-- Example:
+              <img src="images/rotor-hero.jpg" alt="Rotor dynamics GUI and response" />
+            -->
+            <div class="placeholder">
+              <div>
+                <div style="font-weight:800; font-size:14px; margin-bottom:6px;">Image placeholder</div>
+                <div style="opacity:.9; font-size:13px;">
+                  Put your rotor-dynamics GUI or response plot here.<br/>
+                  Suggested filename: <code>images/rotor-hero.jpg</code>
+                </div>
+              </div>
+            </div>
+            <div class="cap">
+              <span>Suggested: GUI + amplitude vs speed</span>
+              <span>Replace later</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 3 -->
+        <article class="card case">
+          <div>
+            <h3>Large Turbine & Pressure Vessel Design (ASME VIII)</h3>
+            <div class="when">Mechanical design • FEA • Compliance</div>
+            <p style="color:var(--muted)">
+              Designed and validated high-energy components including turbine systems and pressure vessels, integrating analysis,
+              documentation, and manufacturing support.
+            </p>
+            <ul>
+              <li>FEA verification and dimensional checks</li>
+              <li>Design code compliance and calculation documentation</li>
+              <li>Manufacturing support and delivery ownership</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">ANSYS</span><span class="tag">PV Elite</span><span class="tag">ASME VIII</span>
+            </div>
+
+            <div class="mini-gallery">
+              <div class="mini"><div class="ph">CAD render</div></div>
+              <div class="mini"><div class="ph">Stress plot</div></div>
+              <div class="mini"><div class="ph">Assembly photo</div></div>
+            </div>
+          </div>
+
+          <div class="media">
+            <!-- Example:
+              <img src="images/pv-hero.jpg" alt="Pressure vessel and turbine analysis" />
+            -->
+            <div class="placeholder">
+              <div>
+                <div style="font-weight:800; font-size:14px; margin-bottom:6px;">Image placeholder</div>
+                <div style="opacity:.9; font-size:13px;">
+                  Put turbine / pressure vessel CAD + FEA here.<br/>
+                  Suggested filename: <code>images/pv-hero.jpg</code>
+                </div>
+              </div>
+            </div>
+            <div class="cap">
+              <span>Suggested: vessel CAD + stress contours</span>
+              <span>Replace later</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 4 -->
+        <article class="card case">
+          <div>
+            <h3>Automotive Durability & Structural Analysis</h3>
+            <div class="when">Durability • Correlation • Delivery</div>
+            <p style="color:var(--muted)">
+              Led simulation workstreams across build phases, coordinating design–test–supplier inputs and delivering validated
+              durability and structural performance decisions.
+            </p>
+            <ul>
+              <li>Improved fatigue performance and reduced weight where it mattered</li>
+              <li>Built test–simulation correlation confidence for release decisions</li>
+              <li>Structured workstreams to avoid late surprises</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">Durability</span><span class="tag">Correlation</span><span class="tag">Release decisions</span>
+            </div>
+
+            <div class="mini-gallery">
+              <div class="mini"><div class="ph">FE mesh</div></div>
+              <div class="mini"><div class="ph">Load case</div></div>
+              <div class="mini"><div class="ph">Test rig</div></div>
+            </div>
+          </div>
+
+          <div class="media">
+            <!-- Example:
+              <img src="images/auto-hero.jpg" alt="Automotive durability analysis" />
+            -->
+            <div class="placeholder">
+              <div>
+                <div style="font-weight:800; font-size:14px; margin-bottom:6px;">Image placeholder</div>
+                <div style="opacity:.9; font-size:13px;">
+                  Put a durability/correlation visual here.<br/>
+                  Suggested filename: <code>images/auto-hero.jpg</code>
+                </div>
+              </div>
+            </div>
+            <div class="cap">
+              <span>Suggested: mesh + correlation chart</span>
+              <span>Replace later</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 5 -->
+        <article class="card case">
+          <div>
+            <h3>Fracture, Wave Propagation & Micro-Mechanical Modeling</h3>
+            <div class="when">LS-DYNA • Advanced mechanics • Transferable methods</div>
+            <p style="color:var(--muted)">
+              Addressed problems where classical assumptions fail, combining advanced numerical modeling with experiments and
+              custom MATLAB tooling.
+            </p>
+            <ul>
+              <li>Fracture and high-rate dynamics investigations</li>
+              <li>Wave propagation in complex media</li>
+              <li>Experimental + modeling alignment for credible interpretation</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">LS-DYNA</span><span class="tag">MATLAB</span><span class="tag">Mechanics</span>
+            </div>
+
+            <div class="mini-gallery">
+              <div class="mini"><div class="ph">Experiment setup</div></div>
+              <div class="mini"><div class="ph">Simulation frame</div></div>
+              <div class="mini"><div class="ph">Result plot</div></div>
+            </div>
+          </div>
+
+          <div class="media">
+            <!-- Example:
+              <img src="images/fracture-hero.jpg" alt="Fracture and wave propagation simulations" />
+            -->
+            <div class="placeholder">
+              <div>
+                <div style="font-weight:800; font-size:14px; margin-bottom:6px;">Image placeholder</div>
+                <div style="opacity:.9; font-size:13px;">
+                  Put fracture / wave propagation visuals here.<br/>
+                  Suggested filename: <code>images/fracture-hero.jpg</code>
+                </div>
+              </div>
+            </div>
+            <div class="cap">
+              <span>Suggested: experiment + simulation snapshot</span>
+              <span>Replace later</span>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- CASE 2 -->
-    <section class="card case">
-      <div>
-        <h3>Rotor Dynamics & Vibration Analysis</h3>
-        <p>
-          FEM-based rotor dynamics modeling including mass, stiffness,
-          damping, and gyroscopic effects, supported by custom tooling.
-        </p>
-        <span class="tag">Rotordynamics</span>
-        <span class="tag">FEM</span>
-        <span class="tag">Vibration</span>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="sec-title">
+        <h2>Experience</h2>
+        <p>Concise, credibility-focused</p>
       </div>
-      <div>
-        <img src="images/rotor-hero.jpg" alt="Rotor dynamics analysis">
-      </div>
-    </section>
 
-    <!-- CASE 3 -->
-    <section class="card case">
-      <div>
-        <h3>Pressure Vessel & Turbine Design (ASME VIII)</h3>
-        <p>
-          Design and validation of high-pressure vessels and turbine
-          components with full FEM verification and compliance.
-        </p>
-        <span class="tag">ASME VIII</span>
-        <span class="tag">ANSYS</span>
-        <span class="tag">FEA</span>
-      </div>
-      <div>
-        <img src="images/pv-hero.Jpg" alt="Pressure vessel FEM analysis">
+      <div class="two">
+        <div class="list">
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>Etteplan — Senior CAE Engineer / Technical Lead</strong>
+                <p>
+                  Own simulation strategy and delivery for large-scale industrial structures. Developed reduced-order modeling
+                  (ROM) approaches for complex systems. Defined and supervised an industrial master’s thesis focused on ROM for
+                  highly complex structures, translating methods into deployable workflows.
+                </p>
+              </div>
+              <span>Feb 2025 – Present</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>Volvo Cars — Durability Analysis Engineer / Simulation Lead</strong>
+                <p>
+                  Led simulation workstreams and coordinated design–test–supplier inputs across build phases. Improved fatigue
+                  performance and correlation confidence for release decisions.
+                </p>
+              </div>
+              <span>Apr 2023 – Jan 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>FARAB — Team Leader / Mechanical Design & Analysis Engineer</strong>
+                <p>
+                  Led design and analysis for hydro-turbine components, pressure vessels, and rotating machinery; delivered FEA,
+                  documentation, and manufacturing support.
+                </p>
+              </div>
+              <span>2009 – 2015</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div>
+                <strong>Research / Contracting</strong>
+                <p>
+                  Advanced mechanics modeling and experiments (fracture, granular/auxetic media, wave propagation), with published
+                  outcomes and transferable methods.
+                </p>
+              </div>
+              <span>2015 – 2023</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="card">
-      <h2>Contact</h2>
-      <p>
-        Email: bahaloo.h@gmail.com<br>
-        LinkedIn: linkedin.com/in/h-bahaloo<br>
-        Stockholm, Sweden
-      </p>
-      <p style="font-size:12px;color:#9ca3af">
-        Independent projects accepted outside current employment scope.
-      </p>
+    <section id="contact">
+      <div class="sec-title">
+        <h2>Contact</h2>
+        <p>For months-long technical ownership</p>
+      </div>
+
+      <div class="card contact">
+        <p style="margin:0 0 10px; color:var(--muted)">
+          I typically engage in months-long independent contracts as an embedded technical lead.
+        </p>
+        <p style="margin:0">
+          Email: <a href="mailto:bahaloo.h@gmail.com">bahaloo.h@gmail.com</a><br/>
+          LinkedIn: <a href="https://linkedin.com/in/h-bahaloo" target="_blank" rel="noopener">linkedin.com/in/h-bahaloo</a><br/>
+          Location: Stockholm, Sweden
+        </p>
+      </div>
     </section>
 
+    <p class="footer">© <span id="year"></span> Hassan Bahaloo • CV + Selected Technical Cases</p>
   </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
 
